@@ -1,6 +1,7 @@
 body {
     margin: 60px auto;
     width: 70%;
+    background-color: pink;
 }
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
@@ -31,7 +32,6 @@ p {
 footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
-    background-color: yellow
 }
 
 ul.posts { 
