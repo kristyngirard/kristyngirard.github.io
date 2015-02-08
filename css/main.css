@@ -1,36 +1,102 @@
 body {
-    margin: 60px auto;
-    width: 70%;
+    height: 100%;
+    background-color: #FFFFF0;
+    color: pink;
+} 
+
+canvas {
+	height: 500px;
+	display: block;
+    margin: 0 auto;
+	margin-top:0px;
+	top: 0;
+	left: 0;
 }
-nav ul, footer ul {
-    font-family:'Georgia','Helvetica', 'Arial', 'Sans-Serif';
-    padding: 0px;
-    list-style: none;
-    font-weight: bold;
+
+div.container {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
 }
-nav ul li, footer ul li {
-    display: inline;
-    margin-right: 20px;
+
+nav {
+
+	display: block;
+    margin: 0 auto;
 }
-a {
-    text-decoration: none;
-    color: #999;
+
+nav ul {
+    font-family:'Verdana';
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+
 }
-a:hover {
-    text-decoration: underline;
+nav li {
+	float: center;
+	display: inline;
+}
+
+nav ul li a:link {
+	display: inline-block;
+	width: 250px;
+	height: 20px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: gray;
+	text-align: center;
+	padding: 4px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+nav ul li a:visited {
+	color: #ffffff;
+}
+
+nav ul li a:hover, nav ul li a:active {
+    background-color: #404040;
+    color: rgb(230,0,141);
 }
 h1 {
     font-size: 3em;
-    font-family:'Lucida Console','Helvetica', 'Arial', 'Sans-Serif';
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 p {
-    font-size: 1.5em;
+    font-size: 1em;
     line-height: 1.4em;
     color: #333;
+    font-family:'Verdana';
 }
 footer {
-    border-top: 1px solid #d5d5d5;
+    background: gray;
     font-size: .8em;
+    width: 100%;
+    
+    position: fixed;
+    bottom: 0;
+    display: block;
+    margin: 0 auto;
+}
+
+footer ul {
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    color: #FFC2E0;
+}
+
+footer li {
+	float: center;
+	display: inline;
+}
+
+footer ul li a:link, footer ul li a:visited {
+	display: inline-block;
+	background-color: gray;
 }
 
 ul.posts { 

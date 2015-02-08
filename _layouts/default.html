@@ -3,26 +3,40 @@
 		<head>
 			<title>{{ page.title }}</title>
 			<link rel="stylesheet" type="text/css" href="/css/main.css">
+			
+			<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    		<script type="text/javascript" src="http://s3.amazonaws.com/codecademy-content/courses/hour-of-code/js/alphabet.js"></script>
+    		
 		</head>
+
 		<body>
-			<nav>
+			<canvas id="myCanvas"></canvas>
+    		<script type="text/javascript" src="http://s3.amazonaws.com/codecademy-content/courses/hour-of-code/js/bubbles.js"></script>
+    		<script type="text/javascript" src="main.js"></script>
+
+
+			<nav>		
 	    		<ul>
-	        		<li><a href="/">Home</a></li>|
-		        	<li><a href="/about">About</a></li>|
-	        		<li><a href="/resume">Resume</a></li>|
-	        		<li><a href="/blog">Blog</a></li>
+	    			<li><a href="/">Home</a></li>
+		        	<li><a href="/about">About</a></li>
+		      		<li><a href="/resume">Resume</a></li>
+	    			<li><a href="/blog">Blog</a></li>
 	    		</ul>
-			</nav>
+    		<nav>
+
 			<div class="container">
 			
 			{{ content }}
 			
 			</div>
+			
+			
 			<footer>
 	    		<ul>
 	        		<li><a href="mailto:kristyn.girard@gmail.com">email</a></li>
+	        		<li> Copyright Kristyn Girard  2015</li>
 	        		<li><a href="https://github.com/kristyngirard">github</a></li>
 				</ul>
-			</footer>
+			<footer>
 		</body>
 	</html>
