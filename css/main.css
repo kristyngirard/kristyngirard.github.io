@@ -1,7 +1,8 @@
 body {
     height: 100%;
     background-color: #FFFFF0;
-    color: pink;
+    color: rgb(230,0,141);
+    font-family:'Verdana';
 } 
 
 canvas {
@@ -22,12 +23,11 @@ div.container {
 }
 
 nav {
-
 	display: block;
     margin: 0 auto;
 }
 
-nav ul {
+ul#nav {
     font-family:'Verdana';
     padding: 0;
     margin: 0;
@@ -35,12 +35,12 @@ nav ul {
     overflow: hidden;
 
 }
-nav li {
+ul#nav li {
 	float: center;
 	display: inline;
 }
 
-nav ul li a:link {
+ul#nav li a:link {
 	display: inline-block;
 	width: 250px;
 	height: 20px;
@@ -53,11 +53,11 @@ nav ul li a:link {
 	text-transform: uppercase;
 }
 
-nav ul li a:visited {
+ul#nav li a:visited {
 	color: #ffffff;
 }
 
-nav ul li a:hover, nav ul li a:active {
+ul#nav li a:hover, nav ul li a:active {
     background-color: #404040;
     color: rgb(230,0,141);
 }
@@ -65,12 +65,40 @@ h1 {
     font-size: 3em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
+
+h3 { 
+    display: block;
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    text-align: left;
+}
+
 p {
     font-size: 1em;
     line-height: 1.4em;
     color: #333;
     font-family:'Verdana';
 }
+
+.resume li {
+	float: left;
+}
+
+div.resume a:link, a:visited {
+	display: block;
+	text-decoration: none;
+	color: gray;
+}
+
+div.about img {
+	padding-right: 50px;
+	padding-bottom: 30px;
+}
+
 footer {
     background: gray;
     font-size: .8em;
@@ -82,21 +110,30 @@ footer {
     margin: 0 auto;
 }
 
-footer ul {
+ul#footer {
     padding: 0;
     margin: 0;
     font-weight: bold;
     color: #FFC2E0;
+    text-align: center;
+    overflow: hidden;
 }
 
-footer li {
-	float: center;
+ul#footer li {
 	display: inline;
 }
 
-footer ul li a:link, footer ul li a:visited {
+ul#footer li a:link, footer ul li a:visited {
 	display: inline-block;
 	background-color: gray;
+	width: 120px;
+	height: 20px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: center;
+	padding: 4px;
+	text-decoration: none;
+	text-transform: uppercase;
 }
 
 ul.posts { 
