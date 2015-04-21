@@ -19,9 +19,9 @@ var Storage = (function(Storage) {
 
 var Bayes = (function (Bayes) {
 
-	var docCountKey = function (category) {
-		return '_Bayes::docCount:' + category;
-	};
+    var docCountKey = function (category) {
+	return '_Bayes::docCount:' + category;
+    };
     var stemKey = function (stem, category) {
         return '_Bayes::stem:' + stem + '::category:' + category;
     };
@@ -107,8 +107,8 @@ var Bayes = (function (Bayes) {
     };
 
     Bayes.unigramTokenizer = function (text) {
-	    text = text.toLowerCase().replace(/'/g, '').replace(/\W/g, ' ').replace(/\s+/g, ' ').trim().split(' ');
-	    return text;
+    	text = text.toLowerCase().replace(/'/g, '').replace(/\W/g, ' ').replace(/\s+/g, ' ').trim().split(' ');
+	return text;
     };
 
     Bayes.tokenizer = Bayes.unigramTokenizer;
@@ -116,7 +116,7 @@ var Bayes = (function (Bayes) {
     Bayes.storage = localStorage;
 
     Bayes.train = function (text, category) {
-				registerCategory(category);
+	registerCategory(category);
         var words = Bayes.tokenizer(text);
         var length = words.length;
         for (var i = 0; i < length; i++)
@@ -144,7 +144,7 @@ var Bayes = (function (Bayes) {
         for (var j = 0; j < categories.length; j++) {
             var category = categories[j];
             var logSum = 0;
-						categoryProbability[category] = docCounts[category] / totalDocCount;
+	    categoryProbability[category] = docCounts[category] / totalDocCount;
 
             for (var i = 0; i < length; i++) {
                 var word = words[i];
@@ -156,17 +156,17 @@ var Bayes = (function (Bayes) {
                     var wordInverseProbability = stemInverseCategoryCount(word, category) / docInverseCounts[category];
                     var wordicity = wordProbability / (wordProbability + wordInverseProbability);
 
-					/* RARE WORDS ADJUSTMENT */
+		    /* RARE WORDS ADJUSTMENT */
 
-					wordicity = ((3*0.5) + (_stemTotalCount*wordicity)) / (3 + _stemTotalCount);
+		    wordicity = ((3*0.5) + (_stemTotalCount*wordicity)) / (3 + _stemTotalCount);
 
-					// to avoid weird logs
+		    // to avoid weird logs
                     if (wordicity === 0)
                         wordicity = 0.00001;
                     else if (wordicity === 1)
                         wordicity = 0.99999;
-               }
-								logSum += (Math.log(1 - wordicity) - Math.log(wordicity));
+                }
+		logSum += (Math.log(1 - wordicity) - Math.log(wordicity));
                 log(category + "icity of " + word + ": " + wordicity);
             }
             scores[category] = 1 / ( 1 + Math.exp(logSum) );
