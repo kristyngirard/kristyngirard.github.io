@@ -3,7 +3,7 @@ body {
     background-color: #FFFFF0;
     color: rgb(230,0,141);
     font-family:'Verdana';
-} 
+}
 
 canvas {
 	height: 500px;
@@ -66,7 +66,7 @@ h1 {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 
-h3 { 
+h3 {
     display: block;
     font-size: 1.17em;
     margin-top: 1em;
@@ -103,7 +103,7 @@ footer {
     background: gray;
     font-size: .8em;
     width: 100%;
-    
+
     position: fixed;
     bottom: 0;
     display: block;
@@ -136,8 +136,8 @@ ul#footer li a:link, footer ul li a:visited {
 	text-transform: uppercase;
 }
 
-ul.posts { 
-    margin: 20px auto 40px; 
+ul.posts {
+    margin: 20px auto 40px;
     font-size: 1.5em;
 }
 
