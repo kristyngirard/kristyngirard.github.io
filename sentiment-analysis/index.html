@@ -37,9 +37,9 @@ Bayes.tokenizer = function (text) {
     // Standard unigram tokenizer; lowercase, strip special characters, split by whitespace
     text = Bayes.unigramTokenizer(text);
 
-		/* NEGATION */
+	/* NEGATION */
 
-		// Step through array of tokens
+	// Step through array of tokens
     for (var i = 0; i < text.length; i++) {
         // If negation word found, add a * to the word before and after it
         if (text[i].match(negations)) {
@@ -48,11 +48,10 @@ Bayes.tokenizer = function (text) {
         }
     }
 
-		/* STEMMING*/
+	/* STEMMING*/
 
     // Use Porter Stemmer algorithm
     text = text.map(function (t) { return stemmer(t); });
-
 
     return text;
 };
@@ -75,7 +74,7 @@ function classify() {
     positives.sort(function () { return Math.random() - 0.5; });
 
 
-		/* TRAINING */
+	/* TRAINING */
 
     // Loop through data until split point. Then train on both datasets
     for (var i = 0; i < split; i++) {
@@ -84,20 +83,20 @@ function classify() {
     }
 
 
-		/* TESTING */
+	/* TESTING */
 
     // Look at remainder of data set (split to end) and test each one
     for (var i = split; i < length; i++) {
         var negResult = Bayes.getClassification(Bayes.guess(negatives[i]));
         var posResult = Bayes.getClassification(Bayes.guess(positives[i]));
 
-				/* THRESHOLD */
+		/* THRESHOLD */
 
         // If the probability is less than 80%, just ignored it
         if (negResult.score < 0.80) numSkipped++;
         else if (negResult.category === 'negative') numCorrect++;
         else {
-						numIncorrect++;
+			numIncorrect++;
             incorrectNegs.push(negatives[i]);
         }
 
@@ -105,7 +104,7 @@ function classify() {
         if (posResult.score < 0.80) numSkipped++;
         else if (posResult.category === 'positive') numCorrect++;
         else {
-						numIncorrect++;
+			numIncorrect++;
             incorrectPos.push(positives[i]);
         }
     }
@@ -133,38 +132,35 @@ function runTests() {
     var scores = [];
     var sum = 0;
 
-		console.log("--- Sentiment Analysis Console --- ");
-		console.log("");
-		console.log("--- Testing " + numTests +" times --- ");
+	console.log("--- Sentiment Analysis Console --- ");
+	console.log("");
+	console.log("--- Testing " + numTests +" times --- ");
 
     while (count < numTests) {
-			// Get accuracy for one classification
-			var result = classify();
+		// Get accuracy for one classification
+		var result = classify();
+		scores.push(result);
+		console.log("Test "+ (count+1) +": accuracy " + result +"%");
+		count++;
+	}
 
-			scores.push(result);
-
-			console.log("Test "+ (count+1) +": accuracy " + result +"%");
-
-			count++;
-		}
-
-		// calculate total sum of all scores
+	// calculate total sum of all scores
     scores.forEach(function (score) {
         sum += score;
     });
 
-		var average = sum / numTests;
+	var average = sum / numTests;
 
-		console.log("");
+	console.log("");
     console.log("Average Accuracy: " + average + "%");
 
-		// Display the average accuracy
-		var resultsBar = document.getElementById("testResultsBar");
-		var resultsVal = document.getElementById("testResultsValue");
-		resultsBar.style.width = Math.round(average) + '%';
-		resultsVal.innerHTML = average;
+	// Display the average accuracy
+	var resultsBar = document.getElementById("testResultsBar");
+	var resultsVal = document.getElementById("testResultsValue");
+	resultsBar.style.width = Math.round(average) + '%';
+	resultsVal.innerHTML = average;
 
-		return average;
+	return average;
 }
 
 setTimeout(runTests, 500);

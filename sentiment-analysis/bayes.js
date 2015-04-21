@@ -19,9 +19,9 @@ var Storage = (function(Storage) {
 
 var Bayes = (function (Bayes) {
 
-		var docCountKey = function (category) {
-				return '_Bayes::docCount:' + category;
-		};
+	var docCountKey = function (category) {
+		return '_Bayes::docCount:' + category;
+	};
     var stemKey = function (stem, category) {
         return '_Bayes::stem:' + stem + '::category:' + category;
     };
@@ -30,7 +30,7 @@ var Bayes = (function (Bayes) {
     };
 
     var log = function (text) {
-      //  console.log(text);
+    	//console.log(text);
     };
 
     var getCategories = function () {
@@ -156,11 +156,11 @@ var Bayes = (function (Bayes) {
                     var wordInverseProbability = stemInverseCategoryCount(word, category) / docInverseCounts[category];
                     var wordicity = wordProbability / (wordProbability + wordInverseProbability);
 
-										/* RARE WORDS ADJUSTMENT */
+					/* RARE WORDS ADJUSTMENT */
 
-										wordicity = ((3*0.5) + (_stemTotalCount*wordicity)) / (3 + _stemTotalCount);
+					wordicity = ((3*0.5) + (_stemTotalCount*wordicity)) / (3 + _stemTotalCount);
 
-										// to avoid weird logs
+					// to avoid weird logs
                     if (wordicity === 0)
                         wordicity = 0.00001;
                     else if (wordicity === 1)
